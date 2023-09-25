@@ -55,38 +55,14 @@
         <div class="filter-options">
             <label for="selectedRover">Select a Rover:</label>
             <select id="selectedRover" name="selectedRover" onchange="filterImages()">
-                <option value="curiosity" <%=selectedRover==='curiosity' ? 'selected' : '' %>>Curiosity</option>
-                <option value="opportunity" <%=selectedRover==='opportunity' ? 'selected' : '' %>>Opportunity</option>
-                <option value="spirit" <%=selectedRover==='spirit' ? 'selected' : '' %>>Spirit</option>
+                <option value="curiosity" <%= selectedRover==='curiosity' ? 'selected' : '' %>>Curiosity</option>
+                <option value="opportunity" <%= selectedRover==='opportunity' ? 'selected' : '' %>>Opportunity</option>
+                <option value="spirit" <%= selectedRover==='spirit' ? 'selected' : '' %>>Spirit</option>
             </select>
             <label for="selectedEarthDate">Select an Earth Date:</label>
-            <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="2012-08-25" 
+            <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="<%= selectedEarthDate %>" 
                 onchange="filterImages()">
-        </div>
-
-
-<!-- Earth date input field and camera selection dropdown -->
-<form action="/mars" method="GET">
-    <label for="selectedEarthDate">Select an Earth Date:</label>
-    <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="<%= selectedEarthDate %>">
-    
-    <label for="selectedCamera">Select a Camera:</label>
-    <select id="selectedCamera" name="selectedCamera">
-        <option value="FHAZ">Front Hazard Avoidance Camera (FHAZ)</option>
-        <option value="RHAZ">Rear Hazard Avoidance Camera (RHAZ)</option>
-        <option value="MAST">Mast Camera (MAST)</option>
-        <!-- Add more camera options as needed -->
-    </select>
-    
-    <button type="submit">View Gallery</button>
-</form>
-
-
-
-
-
-
-
+</div>
 
         <div class="rover-info">
             <p>Rover: <%= roverInfo.rover?.name || 'N/A' %>
@@ -168,13 +144,6 @@
             }
         });
     </script>
-
-
-
-
-    </script>
-
-
     <script>
         // JavaScript function to filter images based on selected Earth date and rover
         function filterImages() {
@@ -183,8 +152,6 @@
             window.location.href = `/mars?date=${selectedEarthDate}&rover=${selectedRover}`;
         }
     </script>
-
-
 
 </body>
 
