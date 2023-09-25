@@ -64,6 +64,30 @@
                 onchange="filterImages()">
         </div>
 
+
+<!-- Earth date input field and camera selection dropdown -->
+<form action="/mars" method="GET">
+    <label for="selectedEarthDate">Select an Earth Date:</label>
+    <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="<%= selectedEarthDate %>">
+    
+    <label for="selectedCamera">Select a Camera:</label>
+    <select id="selectedCamera" name="selectedCamera">
+        <option value="FHAZ">Front Hazard Avoidance Camera (FHAZ)</option>
+        <option value="RHAZ">Rear Hazard Avoidance Camera (RHAZ)</option>
+        <option value="MAST">Mast Camera (MAST)</option>
+        <!-- Add more camera options as needed -->
+    </select>
+    
+    <button type="submit">View Gallery</button>
+</form>
+
+
+
+
+
+
+
+
         <div class="rover-info">
             <p>Rover: <%= roverInfo.rover?.name || 'N/A' %>
                     - Launch Date: <%= roverInfo.rover?.launch_date || 'N/A' %>
