@@ -16,7 +16,7 @@ app.get('/mars', async (req, res) => {
     try {
         const apiKey = 'kAKd9hbHpNiKB04x4th0bFL0aQTUs6ScRwg0rGHd'; // Replace with your NASA API key
         const page = req.query.page || 1;
-        const itemsPerPage = 15;
+        const itemsPerPage = 16;
         const selectedEarthDate = req.query.date || ''; // Get the selected Earth date from query params
         const selectedRover = req.query.rover || 'curiosity'; // Get the selected rover from query params
 
