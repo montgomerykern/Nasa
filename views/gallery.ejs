@@ -18,13 +18,13 @@
             flex-wrap: wrap;
             margin-left: auto;
             margin-right: auto;
-            width: 98%;
+            width: 80%;
         }
 
         .thumbnail {
-            width: 165px;
-            height: 165px;
-            margin: 10px;
+            width: 85px;
+            height: 85px;
+            margin: 5px;
             cursor: pointer;
         }
 
@@ -40,7 +40,7 @@
 
         .default-image img {
             max-width: 100%;
-            max-height: 60vh;
+            max-height: 50vh;
             margin: 0 auto;
             display: block;
         }
@@ -49,34 +49,55 @@
 
 <body>
     <div align="center">
-        <h1 class="uk-heading-medium">Mars Rover Image Gallery</h1>
-        <!-- Add Rover selection dropdown, Earth date picker, and update thumbnail gallery -->
+        <h1 class="uk-heading-small">Mars Rover Image Gallery</h1>
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match uk-padding uk-grid">
+            <div>
+                <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                    <h3 class="uk-card-title">Select a Rover:</h3>
+                    <p>Please select one of the 3 mars rovers.</p>
+                    <select id="selectedRover" name="selectedRover" onchange="filterImages()">
+                        <option value="curiosity" <%=selectedRover==='curiosity' ? 'selected' : '' %>>Curiosity</option>
+                        <option value="opportunity" <%=selectedRover==='opportunity' ? 'selected' : '' %>>Opportunity
+                        </option>
+                        <option value="spirit" <%=selectedRover==='spirit' ? 'selected' : '' %>>Spirit</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                    <h3 class="uk-card-title">Select an Earth Date:</h3>
+                    <p>Please select an Earth date that is after the landing date.</p>
+                    <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="<%= selectedEarthDate %>"
+                        onchange="filterImages()">
+                </div>
+            </div>
 
-        <div class="filter-options">
-            <label for="selectedRover">Select a Rover:</label>
-            <select id="selectedRover" name="selectedRover" onchange="filterImages()">
-                <option value="curiosity" <%= selectedRover==='curiosity' ? 'selected' : '' %>>Curiosity</option>
-                <option value="opportunity" <%= selectedRover==='opportunity' ? 'selected' : '' %>>Opportunity</option>
-                <option value="spirit" <%= selectedRover==='spirit' ? 'selected' : '' %>>Spirit</option>
-            </select>
-            <label for="selectedEarthDate">Select an Earth Date:</label>
-            <input type="date" id="selectedEarthDate" name="selectedEarthDate" value="<%= selectedEarthDate %>" 
-                onchange="filterImages()">
-</div>
-
-        <div class="rover-info">
-            <p>Rover: <%= roverInfo.rover?.name || 'N/A' %>
-                    - Launch Date: <%= roverInfo.rover?.launch_date || 'N/A' %>
-                        - Landing Date: <%= roverInfo.rover?.landing_date || 'N/A' %>
-                            - Mission Status: <%= roverInfo.rover?.status || 'N/A' %>
-            </p>
+            <div>
+                <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                    <h3 class="uk-card-title">Rover Information:</h3>
+                    <p>Rover: <%= roverInfo.rover?.name || 'N/A' %><br>
+                            Launch Date: <%= roverInfo.rover?.launch_date || 'N/A' %>
+                                - Landing Date: <%= roverInfo.rover?.landing_date || 'N/A' %><br>
+                                    Mission Status: <%= roverInfo.rover?.status || 'N/A' %>
+                    </p>
+                </div>
+            </div>
+            <div>
+            </div>
         </div>
+
+
+
+
+
+
     </div>
 
 
     <div class="default-image">
         <!-- Set the src attribute to the URL of the first thumbnail image -->
-        <img src="<%= photos.length > 0 ? photos[0].img_src : '' %>" alt="Mars Rover Photo" id="largeImageElement">
+        <div class="uk-slideshow"><img src="<%= photos.length > 0 ? photos[0].img_src : '' %>" alt="Mars Rover Photo"
+                id="largeImageElement"></div>
     </div>
 
     <div align="center">
@@ -84,7 +105,6 @@
             <p id="cameraInfo">Camera Position: <%= photos.length> 0 ? photos[0].camera?.name || 'N/A' : 'N/A' %></p>
         </div>
     </div>
-
 
     <div class="thumbnail-gallery">
         <% photos.forEach((photo, index)=> { %>
@@ -96,7 +116,6 @@
     </div>
 
     <div>
-        <hr>
         <div class="thumbnail-gallery">
             <% } %>
                 <% }); %>
@@ -104,18 +123,17 @@
     </div>
 
 
-    <!-- Pagination controls -->
-    <div class="pagination">
-        <!-- Include the Earth date and rover parameters in pagination links -->
-        <% if (currentPage> 1) { %>
-            <a href="?page=<%= currentPage - 1 %>&date=<%= selectedEarthDate %>&rover=<%= selectedRover %>"
-                class="prev">Previous</a>
-            <% } %>
-                <% if (currentPage < totalPages) { %>
-                    <a href="?page=<%= currentPage + 1 %>&date=<%= selectedEarthDate %>&rover=<%= selectedRover %>"
-                        class="next">Next</a>
-                    <% } %>
+
     </div>
+
+
+    <ul class="uk-pagination">
+        <li><a href="?page=<%= currentPage - 1 %>&date=<%= selectedEarthDate %>&rover=<%= selectedRover %>"><span
+                    class="uk-margin-small-right prev" uk-pagination-previous></span> Previous</a></li>
+        <li class="uk-margin-auto-left"><a
+                href="?page=<%= currentPage + 1 %>&date=<%= selectedEarthDate %>&rover=<%= selectedRover %>">Next <span
+                    class="uk-margin-small-left next" uk-pagination-next></span></a></li>
+    </ul>
 
     <script>
         // JavaScript function to display a large image when a thumbnail is clicked
