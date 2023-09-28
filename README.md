@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="[https://github.com/othneildrew/Best-README-Template](https://nasa-production-50a0.up.railway.app/)">
-    <img src="/public/images/rover.png" alt="Logo" width="200" height="200">
+    <img src="/public/images/rover.png" alt="Logo" width="250" height="250">
   </a>
 
   <h3 align="center"NASA Mars Rover Project</h3>
@@ -95,7 +95,7 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-*![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
