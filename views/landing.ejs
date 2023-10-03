@@ -1,9 +1,14 @@
-<head> <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/css/uikit.min.css" />
+<head>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/css/uikit.min.css" />
+
     <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit-icons.min.js"></script>
+    <script src="/js/uikit.min.js"></script>
+    <script src="/js/uikit-icons.min.js"></script>
+
 </head>
+
 
 <body>
     <div class="uk-hidden-visually uk-notification uk-notification-top-left uk-width-auto" data-svelte-h="svelte-d5uqm">
@@ -16,9 +21,9 @@
             <div class="uk-container uk-container-expand">
                 <nav class="uk-navbar" uk-navbar="">
                     <div class="uk-navbar-left"><a class="uk-navbar-item uk-logo uk-active" href="/"
-                            aria-label="Back to Home" aria-current="page"><img src="/images/marty-100.png"
+                            aria-label="Back to Home" aria-current="page"><img src="/images/rover.png"
                                 class="uk-margin-small-right" width="50" height="50" alt="">
-                            Monte's Martians</a></div>
+                            Space Exploration & Research System</a></div>
                     <div class="uk-navbar-right">
 
                         <ul class="uk-navbar-nav uk-visible@m">
@@ -35,7 +40,7 @@
             uk-height-viewport="offset-top: true; offset-bottom: true"
             style="min-height: max(0px, (100vh - 80px) - 102.5px);">
             <div class="uk-width-1-1">
-                <div class="uk-background-cover" style="background-image: url(images/mars.png);">
+                
                     <div class="uk-container">
                         <p><img src="/images/rover.png" width="300" height="300" alt="Curiosity Rover"></p>
                         <h1 class="uk-margin-medium uk-text-lead">Welcome to the Mars Rover Gallery<br
@@ -49,6 +54,11 @@
                                     class="uk-button uk-button-primary tm-button-primary uk-hidden@s" href="/mars">View
                                     Mars
                                     Rover Gallery</a></div>
+                            <div class="uk-first-column"><a
+                                    class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large uk-visible@s"
+                                    href="/potd">Picture Of The Day</a> <a
+                                    class="uk-button uk-button-primary tm-button-primary uk-hidden@s"
+                                    href="/potd">Picture of the Day</a></div>
                             <div><a class="uk-button uk-button-default tm-button-default uk-button-large tm-button-large uk-visible@s"
                                     href="https://github.com/montgomerykern/Nasa">GitHub</a> <a
                                     class="uk-button uk-button-default tm-button-default uk-hidden@s"
@@ -56,7 +66,7 @@
                             <br><br><br><br><br><br><br><br>
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
         <div class="uk-section-small">

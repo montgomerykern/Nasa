@@ -1,15 +1,55 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
+// Parse form data
+app.use(express.urlencoded({ extended: true })); 
+
+// Set up static file serving for UIkit CSS and JS
+app.use('/css', express.static(path.join(__dirname, 'node_modules/uikit/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/uikit/dist/js')));
 
 // Define a route for the root URL ("/") to render the landing page
 app.get('/', (req, res) => {
     res.render('landing'); // Render the landing.ejs template
 });
+
+
+// Routes
+app.get('/potd', (req, res) => {
+    res.render('potd', { data: null });
+  });
+  
+  app.post('/apod', async (req, res) => {
+    const selectedDate = req.body.date;
+    try {
+      // Make a request to the NASA APOD API for the selected date
+      const response = await axios.get('https://api.nasa.gov/planetary/apod', {
+        params: {
+          api_key: 'kAKd9hbHpNiKB04x4th0bFL0aQTUs6ScRwg0rGHd',
+          date: selectedDate, // Use the selected date
+        },
+      });
+  
+      const data = response.data;
+  
+      // Render the APOD image using EJS template
+      res.render('potd', { data });
+    } catch (error) {
+      console.error(error);
+      // Render custom error page
+      res.status(500).render('error', {
+        message: 'There was an error retrieving data from the NASA API.'
+      });
+    }
+  
+  });
 
 // Define a route to fetch data from the NASA Mars API with pagination, Earth date filtering, and rover selection
 app.get('/mars', async (req, res) => {

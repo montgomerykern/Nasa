@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA Image of the Day</title>
+  <link rel="stylesheet" href="/css/uikit.min.css">
+
+  <script>
+    // JavaScript code to set the default date to today
+    document.addEventListener('DOMContentLoaded', function () {
+      const dateInput = document.getElementById('date');
+      const today = new Date().toISOString().slice(0, 10); // Format: YYYY-MM-DD
+      dateInput.value = today;
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="uk-container">
+
+
+    <div class="uk-width-xlarge uk-margin-auto uk-text-center uk-margin-small-bottom">
+      <h2 class="uk-h1 uk-margin-top">NASA Astronomy Photo</h2>
+      <p class="uk-text-large tm-text-large">Daily breathtaking photos of our universe with a short explanation from a
+        NASA Astronomer.</p>
+
+
+
+      <!-- Add a form for selecting a date -->
+      <form method="POST" action="/apod" class="uk-margin">
+
+        <div class="uk-flex-block uk-margin-small-top">
+
+          <p class="uk-margin">
+            <input class="uk-input uk-width-1-1" type="date" id="date" name="date" required>
+
+            <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Search Date</button>
+
+            <button class="uk-button uk-button-default uk-width-1-1" type="button" onclick="setRandomDate()">Random
+              Date</button>
+          </p>
+          <% if (data) { %>
+            <img src="<%= data.url %>" alt="<%= data.title %>" class="uk-responsive-width">
+        </div>
+
+      </form>
+
+
+      <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+        <h2 class="uk-card-title">
+          <%= data.title %>
+        </h2>
+        <h3 class="uk-card-date">
+          <%= data.date %>
+        </h3>
+        <p class="uk-text-justify">
+          <%= data.explanation %>
+        </p>
+        <% } %>
+      </div>
+
+    </div>
+    <script>
+      function setRandomDate() {
+        const startDate = new Date(1996, 0, 1);
+        const endDate = new Date();
+        const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+
+        const dateInput = document.getElementById('date');
+        dateInput.value = randomDate.toISOString().slice(0, 10);
+      }
+    </script>
+  </div>
+  <script src="/js/uikit.min.js"></script>
+  <script src="/js/uikit-icons.min.js"></script>
+</body>
+
+</html>
