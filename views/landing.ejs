@@ -6,85 +6,185 @@
     <!-- UIkit JS -->
     <script src="/js/uikit.min.js"></script>
     <script src="/js/uikit-icons.min.js"></script>
+    <style>
+        .uk-navbar-toggle-animate svg&gt;
+
+        [class*="line-"] {
+            transition: 0.2s ease-in-out;
+            transition-property: transform, opacity;
+            transform-origin: center;
+            opacity: 1
+        }
+
+        .uk-navbar-toggle svg&gt;
+
+        .line-3 {
+            opacity: 0
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-3 {
+            opacity: 1
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-2 {
+            transform: rotate(45deg)
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-3 {
+            transform: rotate(-45deg)
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+        .line-1,
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-4 {
+            opacity: 0
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-1 {
+            transform: translateY(6px) scaleX(0)
+        }
+
+        .uk-navbar-toggle-animate[aria-expanded="true"] svg&gt;
+
+        .line-4 {
+            transform: translateY(-6px) scaleX(0)
+        }
+    </style>
 
 </head>
 
+<body uk-parallax="bgy: -200" style="background-image: url(/images/mars.png); background-repeat: no-repeat; background-size: cover;">
+    <div class="uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed"
+        uk-sticky="media: 960; "
+        style="position: fixed !important; width: 1903px !important; margin-top: 0px !important; top: 0px;">
+        <div class="uk-container uk-container-expand">
+            <nav class="uk-navbar" uk-navbar="">
+                <div class="uk-navbar-left"><a class="uk-navbar-item uk-logo uk-active" href="/"
+                        aria-label="Back to Home" aria-current="page"><img src="/images/rover.png"
+                            class="uk-margin-small-right" width="68" height="64" alt="UIkit">
+                        UIkit</a></div>
+                <div class="uk-navbar-right">
 
-<body>
-    <div class="uk-hidden-visually uk-notification uk-notification-top-left uk-width-auto" data-svelte-h="svelte-d5uqm">
-        <div class="uk-notification-message"><a href="#tm-main">Skip to main content</a></div>
+                    <ul class="uk-navbar-nav uk-visible@m">
+                        <li><a href="/pro">Mars Rover</a></li>
+                        <li><a href="/docs/introduction">Daily Picture</a></li>
+                        <li><a href="/changelog">Changelog</a></li>
+                    </ul>
+                    <div class="uk-navbar-item uk-visible@m"><a
+                            class="uk-button uk-button-secondary tm-button-dark uk-icon" href="/download">Download
+                            </a>
+                    </div> <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon"
+                        uk-navbar-toggle-icon="" href="#offcanvas" uk-toggle="" aria-label="Open menu"
+                        role="button"></a>
+                </div>
+            </nav>
+        </div>
     </div>
-    <div class="uk-section-secondary tm-section-texture">
-        <div class="uk-sticky-placeholder" style="height: 0px; width: 0px; margin: 0px;"></div>
-        <div class="uk-navbar-container tm-navbar-container uk-navbar-transparent uk-sticky uk-sticky-fixed"
-            uk-sticky="media: 960; " style="position: sticky; top: 0px;">
-            <div class="uk-container uk-container-expand">
-                <nav class="uk-navbar" uk-navbar="">
-                    <div class="uk-navbar-left"><a class="uk-navbar-item uk-logo uk-active" href="/"
-                            aria-label="Back to Home" aria-current="page"><img src="/images/rover.png"
-                                class="uk-margin-small-right" width="50" height="50" alt="">
-                            Space Exploration & Research System</a></div>
-                    <div class="uk-navbar-right">
 
-                        <ul class="uk-navbar-nav uk-visible@m">
-                            <li><a href="/mars">Gallery</a></li>
-                            <li><a href="/potd">POTD</a></li>
-                            <li><a href="/docs/introduction">Documentation</a></li>
-                            <li><a href="/changelog">Changelog</a></li>
-                        </ul>
 
-                </nav>
+
+
+    <div class="uk-container uk-container-dark uk-container-center uk-margin-top uk-margin-large-bottom">
+        <h1 class="uk-h1 uk-text-center uk-animation-fade">Space Exploration & Research System</h1>
+
+
+
+
+        <div class="uk-section uk-section-transparent">
+            <img class="uk-align-center uk-animation-fade" src="/images/rover.png" width="300" height="300"
+                alt="Curiosity Rover">
+
+            <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid>
+                <div class="uk-flex-last">
+                    <a class="uk-button uk-button-primary uk-animation-slide-left" href="/mars">Mars Rover Gallery</a>
+                </div>
+                <div class="uk-flex-first">
+                    <a class="uk-button uk-button-primary uk-animation-slide-right" href="/potd">Picture Of The Day</a>
+                </div>
+                <div>
+                    <a class="uk-button uk-button-primary uk-animation-scale-up"
+                        href="https://github.com/montgomerykern/Nasa">GitHub</a>
+                </div>
+
             </div>
+
         </div>
 
-        <div id="tm-main" class="uk-section uk-section-small uk-flex uk-flex-middle uk-text-center"
-            uk-height-viewport="offset-top: true; offset-bottom: true"
-            style="min-height: max(0px, (100vh - 80px) - 102.5px);">
-            <div class="uk-width-1-1">
-                <div class="uk-background-cover" style="background-image: url(images/mars.png);">
-                    <div class="uk-container">
-                        <p><img src="/images/rover.png" width="300" height="300" alt="Curiosity Rover"></p>
-                        <h1 class="uk-margin-medium uk-text-lead">Welcome to the Mars Rover Gallery<br
-                                class="uk-visible@s">
-                            Explore stunning photos captured by Mars rovers.</h1>
-                        <div class="uk-child-width-auto uk-grid-medium uk-flex-inline uk-flex-center uk-grid"
-                            uk-grid="">
-                            <div class="uk-first-column"><a
-                                    class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large uk-visible@s"
-                                    href="/mars">View Mars Rover Gallery</a> <a
-                                    class="uk-button uk-button-primary tm-button-primary uk-hidden@s" href="/mars">View
-                                    Mars
-                                    Rover Gallery</a></div>
-                            <div class="uk-first-column"><a
-                                    class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large uk-visible@s"
-                                    href="/potd">Picture Of The Day</a> <a
-                                    class="uk-button uk-button-primary tm-button-primary uk-hidden@s"
-                                    href="/potd">Picture of the Day</a></div>
-                            <div><a class="uk-button uk-button-default tm-button-default uk-button-large tm-button-large uk-visible@s"
-                                    href="https://github.com/montgomerykern/Nasa">GitHub</a> <a
-                                    class="uk-button uk-button-default tm-button-default uk-hidden@s"
-                                    href="https://github.com/montgomerykern/Nasa">GitHub</a></div>
-                            <br><br><br><br><br><br><br><br>
+    </div>
+
+
+    <div class="uk-section uk-section-secondary tm-section-primary uk-section-xlarge uk-padding-remove-bottom"
+        data-svelte-h="svelte-1un1sff">
+        <div class="uk-container uk-text-center">
+            
+                      
+                    </div>
+                    <div class="uk-margin-auto">
+                        <ul class="uk-subnav uk-flex-center" uk-margin="">
+                            <li class="uk-first-column"><a href="/pro">Pro</a></li>
+                            <li><a href="/docs/introduction">Documentation</a></li>
+                            <li><a href="/changelog">Changelog</a></li>
+                            <li><a href="/download">Download</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="uk-text-right@m uk-text-center">
+                            <div class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid" uk-grid="">
+                                <div class="uk-first-column"><a href="https://github.com/uikit/uikit"
+                                        class="uk-icon-link uk-icon" uk-icon="github" aria-label="Go to GitHub"></a></div>
+                                <div><a href="https://discordapp.com/invite/NEt4Pv7" class="uk-icon-link uk-icon"
+                                        uk-icon="commenting" aria-label="Go to Discord"></a></div>
+                                <div><a href="https://twitter.com/getuikit" class="uk-icon-link uk-icon"
+                                        uk-icon="twitter" aria-label="Go to Twitter"></a></div>
+                                <div><a href="https://www.facebook.com/getuikit" class="uk-icon-link uk-icon"
+                                        uk-icon="facebook" aria-label="Go to Facebook"></a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="uk-section-small">
-            <div class="uk-container uk-container-expand uk-text-center uk-position-relative">
-                <ul class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom" uk-margin="">
-                    <li class="uk-first-column"><span>Version 1.0 Beta</span></li>
-                    <li><a href="https://github.com/montgomerykern/Nasa"><span class="uk-margin-small-right uk-icon"
-                                uk-icon="star">
-                            </span>5 Stargazers</a></li>
-                    <li><a class="uk-text-lowercase" href="https://twitter.com/montgomerykern"><span
-                                class="uk-margin-small-right uk-icon" uk-icon="twitter"></span>@MontgomeryKern</a></li>
-                    <li><a href="https://discordapp.com/"><span class="uk-margin-small-right uk-icon"
-                                uk-icon="commenting"></span>Community</a></li>
+    </div>
+
+    <div id="offcanvas" uk-offcanvas="mode: push; overlay: true" class="uk-offcanvas" style="" tabindex="-1">
+        <div class="uk-offcanvas-bar" role="dialog" aria-modal="true" style="">
+            <div class="uk-panel">
+                <ul class="uk-nav uk-nav-default tm-nav">
+                    <li class="uk-nav-header" data-svelte-h="svelte-51ym2f">General</li>
+                    <li class="uk-active"><a href="/" aria-current="page">Home</a></li>
+                    <li><a href="/pro">Pro</a></li>
+                    <li><a href="/changelog">Changelog</a></li>
+                    <li><a href="/download">Download</a></li>
+                </ul>
+                <ul class="uk-nav uk-nav-default tm-nav uk-margin-top">
+                    <li class="uk-nav-header">Getting started</li>
+                    <li><a href="/docs/introduction">Introduction</a> </li>
+                    <li><a href="/docs/installation">Installation</a> </li>
+                    <li><a href="/docs/less">Less</a> </li>
+                    <li><a href="/docs/sass">Sass</a> </li>
+                    <li><a href="/docs/javascript">JavaScript</a> </li>
+                    <li><a href="/docs/webpack">Webpack</a> </li>
+                    <li><a href="/docs/custom-icons">Custom icons</a> </li>
+                    <li><a href="/docs/avoiding-conflicts">Avoiding conflicts</a> </li>
+                    <li><a href="/docs/accessibility">Accessibility</a> </li>
+                    <li><a href="/docs/rtl">RTL support</a> </li>
+                    <li><a href="/docs/migration">Migration</a> </li>
+                    <li class="uk-nav-header">Components</li>
+                    <li><a href="/docs/accordion">Accordion</a> </li>
+                    <li><a href="/docs/alert">Alert</a> </li>
                 </ul>
             </div>
         </div>
     </div>
-
 
 </body>
