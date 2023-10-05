@@ -69,35 +69,54 @@
 <body style="background-image: url(/images/mars.png); background-repeat: no-repeat; background-size: cover;">
 
     <div id="tm-main" class="uk-section uk-flex uk-flex-middle uk-text-center"
-        
         style="min-height: max(0px, (100vh - 80px) - 80.5px);">
 
 
-    <div class="uk-container uk-container-dark uk-container-center">
+        <div class="uk-container uk-container-dark uk-container-center">
 
-        <h1 class="uk-h1 uk-text-center uk-animation-fade">Space Exploration & Research System</h1>
-        <div class="uk-section uk-section-transparent">
-            <img class="uk-align-center uk-animation-fade" src="/images/rover.png" width="300" height="300"
-                alt="Curiosity Rover">
+            <h1 class="uk-h1 uk-text-center uk-animation-fade">Space Exploration & Research System</h1>
+            <div class="uk-section uk-section-transparent">
+                <img class="uk-align-center uk-animation-fade" src="/images/rover.png" width="300" height="300"
+                    alt="Curiosity Rover">
 
-            <div class=" uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid>
-                <div class="uk-flex-last">
-                    <a class="uk-button uk-button-small uk-button-primary uk-animation-slide-left" href="/mars">Mars Rover Gallery</a>
+
+
+                <!-- This is a button toggling the modal -->
+                <button class="uk-button uk-button-secondary uk-margin-small-right uk-animation-scale-down " type="button"
+                    uk-toggle="target: #modal-example">About Us</button>
+
+
+                <!-- This is the modal -->
+                <div id="modal-example" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Welcome</h2>
+                        <p>Welcome to our application space enthusaists we hope you enjoy the apps we have created using the NASA Open API system. Check back often as We will be adding functionality almost daily.</p>
+                        <p class="uk-text-right">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
+                        </p>
+                    </div>
                 </div>
-                <div class="uk-flex-first">
-                    <a class="uk-button uk-button-small uk-button-primary uk-animation-slide-right" href="/potd">Picture Of The Day</a>
-                </div>
-                <div>
-                    
-                </div>
+
+
+
+
+
+                <p uk-margin>
+                    <a class="uk-button uk-button-secondary uk-button-large uk-animation-slide-left" href="/mars">Mars
+                        Rover App</a>
+                    <a class="uk-button uk-button-secondary uk-button-large uk-animation-scale-up" href="/potd">Picture
+                        Archive App</a>
+                    <a class="uk-button uk-button-secondary uk-button-large uk-animation-slide-right"
+                        href="https://github.com/montgomerykern/nasa">Download Source</a>
+                </p>
+
+
 
             </div>
 
         </div>
 
     </div>
-
-</div>
 
 
     <div id="offcanvas" uk-offcanvas="mode: push; overlay: true" class="uk-offcanvas" style="" tabindex="-1">

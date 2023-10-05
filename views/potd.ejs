@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NASA Image of the Day</title>
   <link rel="stylesheet" href="/css/uikit.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
   <script>
     // JavaScript code to set the default date to today
@@ -15,12 +16,123 @@
       dateInput.value = today;
     });
   </script>
+<style>
+
+  @keyframes move-background {
+    from {
+      -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to { 
+      -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+  }
+  @-webkit-keyframes move-background {
+    from {
+      -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to { 
+      -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+  }
+  
+  @-moz-keyframes move-background {    
+    from {
+      -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to { 
+      -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+  }
+  
+      @-webkit-keyframes move-background {
+    from {
+      -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    to { 
+      -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+  }
+  
+  .background-container{
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .stars {
+   background: black url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+   position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+      z-index: 0;
+  }
+  
+  .twinkling{
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      
+      -moz-animation:move-background 70s linear infinite;
+    -ms-animation:move-background 70s linear infinite;
+    -o-animation:move-background 70s linear infinite;
+    -webkit-animation:move-background 70s linear infinite;
+    animation:move-background 70s linear infinite;
+    
+  }
+  
+  .clouds{
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+    background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+  
+     -moz-animation:move-background 150s linear infinite;
+    -ms-animation:move-background 150s linear infinite;
+    -o-animation:move-background 150s linear infinite;
+    -webkit-animation:move-background 150s linear infinite;
+    animation:move-background 150s linear infinite;
+  }
+
+  .mon{
+  height: 50vh;
+  width:50vh;
+  position: absolute;
+  z-index: 3;
+  right: 40px;
+}
+  </style>
+ 
 
 </head>
 
 <body>
-  <div class="uk-container">
 
+  <div class="background-container">
+    <img class="mon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    </div>
+
+  <div class="uk-container uk-card">
+   
+    
 
     <div class="uk-width-xlarge uk-margin-auto uk-text-center uk-margin-small-bottom">
       <h2 class="uk-h1 uk-margin-top">NASA Astronomy Photo</h2>
@@ -39,7 +151,7 @@
 
             <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Search Date</button>
 
-            <button class="uk-button uk-button-default uk-width-1-1" type="button" onclick="setRandomDate()">Random
+            <button class="uk-button uk-button-muted uk-width-1-1" type="button" onclick="setRandomDate()">Random
               Date</button>
           </p>
           <% if (data) { %>
@@ -77,5 +189,3 @@
   <script src="/js/uikit.min.js"></script>
   <script src="/js/uikit-icons.min.js"></script>
 </body>
-
-</html>
